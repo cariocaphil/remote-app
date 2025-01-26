@@ -3,15 +3,34 @@ const ModuleFederationPlugin = require("webpack").container.ModuleFederationPlug
 
 module.exports = {
   mode: "development",
+  entry: "./src/index.js", // Ensure this points to your entry file
   devServer: {
     port: 3001, // Port for the remote app
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/, // Match .js and .jsx files
+        exclude: /node_modules/, // Exclude dependencies in node_modules
+        use: {
+          loader: "babel-loader",
+        },
+      },
+      {
+        test: /\.css$/, // Optional: Match CSS files if needed
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
+  resolve: {
+    extensions: [".js", ".jsx"], // Allow imports without specifying extensions
   },
   plugins: [
     new ModuleFederationPlugin({
       name: "remoteApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": "./src/components/Button", // Expose modules here
+        "./Button": "./src/components/Button", // Example: Expose a module
       },
       shared: {
         react: { singleton: true, requiredVersion: "^18.0.0" },
