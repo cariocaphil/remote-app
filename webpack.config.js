@@ -33,7 +33,7 @@ module.exports = {
         "./Button": "./src/components/Button", // Example: Expose a module
       },
       shared: {
-        react: { singleton: true, requiredVersion: "^18.0.0" },
+        react: { singleton: true, requiredVersion: "^18.0.0", eager: true },
         "react-dom": { singleton: true, requiredVersion: "^18.0.0" },
       },
     }),
