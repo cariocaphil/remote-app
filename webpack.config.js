@@ -30,7 +30,7 @@ module.exports = {
       name: "remoteApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": "./src/components/Button", // Example: Expose a module
+        "./StockDisplay": "./src/components/StockDisplay"
       },
       shared: {
         react: { singleton: true, requiredVersion: "^18.0.0", eager: true },
