@@ -35,7 +35,7 @@ const StockDisplay = ({ stockId }) => {
 
   return (
     <div style={{ marginTop: "20px" }}>
-      <h2>Remote-App</h2>
+      <h2>Remote-App:</h2>
       <h3>Stock Information</h3>
       {loading && <p>Loading stock price...</p>}
       {error && <p>Error: {error}</p>}
