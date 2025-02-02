@@ -34,7 +34,7 @@ const StockDisplay = ({ stockId }) => {
   }, [stockId]); // Runs when stock selection changes
 
   return (
-    <div style={{ marginTop: "20px" }}>
+    <div style={{ backgroundColor: "#e0f7ff", padding: "20px", borderRadius: "5px" }}>
       <h2>Remote-App:</h2>
       <h3>Stock Information</h3>
       {loading && <p>Loading stock price...</p>}
