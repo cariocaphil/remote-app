@@ -1,5 +1,20 @@
 import React, { useEffect, useState } from "react";
 
+const tileStyle = {
+  backgroundColor: "#ffffff",
+  padding: "20px",
+  margin: "20px",
+  borderRadius: "10px",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+  maxWidth: "400px",
+  textAlign: "center",
+  transition: "transform 0.2s ease-in-out",
+};
+
+const tileHoverStyle = {
+  transform: "scale(1.05)",
+};
+
 const StockDisplay = ({ stockId }) => {
   const [stockPrice, setStockPrice] = useState(null);
   const [marketStats, setMarketStats] = useState(null);
@@ -34,7 +49,9 @@ const StockDisplay = ({ stockId }) => {
   }, [stockId]); // Runs when stock selection changes
 
   return (
-    <div style={{ backgroundColor: "#e0f7ff", padding: "20px", borderRadius: "5px" }}>
+    <div style={tileStyle}
+      onMouseEnter={(e) => (e.currentTarget.style.transform = tileHoverStyle.transform)}
+      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}>
       <h2>Remote-App:</h2>
       <h3>Stock Information</h3>
       {loading && <p>Loading stock price...</p>}
